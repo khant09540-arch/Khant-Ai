@@ -5,7 +5,7 @@ const exec=promisify(execFile),app=express(),PORT=process.env.PORT||3000;
 const dir=path.join(os.tmpdir(),"khant-ai-openai");fs.mkdirSync(dir,{recursive:true});
 const upload=multer({dest:dir,limits:{fileSize:500*1024*1024}});
 const openai=new OpenAI({apiKey:process.env.OPENAI_API_KEY});
-app.use(express.json({limit:"2mb"}));app.use(express.static(path.join(__dirname,"public")));
+app.use(express.json({limit:"2mb"}));app.use(express.static(__dirname));
 async function ff(args){await exec("ffmpeg",args,{maxBuffer:10*1024*1024});}
 async function transcribe(file){
  const r=await openai.audio.transcriptions.create({file:fs.createReadStream(file),model:process.env.OPENAI_TRANSCRIBE_MODEL||"gpt-4o-transcribe"});
