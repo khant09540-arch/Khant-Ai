@@ -1,1 +1,14 @@
-{"name":"khant-ai-openai","version":"3.0.0","private":true,"scripts":{"start":"node server.js"},"dependencies":{"dotenv":"^16.6.1","express":"^5.1.0","multer":"^2.0.2","openai":"^5.0.0"}}
+{
+  "name": "khant-ai",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@google/genai": "latest",
+    "dotenv": "latest",
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
+  }
+}
